@@ -46,7 +46,7 @@ void main()
 			{
 				int cnt=1;
 				int j=1;
-				while (1)
+				while (cnt)
 				{
 					if (s[i+j]=='[')
 					{
@@ -59,7 +59,6 @@ void main()
 					if (cnt==0)
 					{
 						i=i+j+1;
-						break;
 					}
 					j+=1;
 				}
@@ -73,7 +72,7 @@ void main()
 		{
 			int cnt=1;
 			int j=1;
-			while (1)
+			while (cnt)
 			{
 				if (s[i-j]=='[')
 				{
@@ -86,7 +85,6 @@ void main()
 				if (cnt==0)
 				{
 					i=i-j;
-					break;
 				}
 				j+=1;
 
