@@ -4,19 +4,26 @@ void main()
 {
 	long long m[1024]={0};
 	int p=0;
-	char s[]=",+.";
+	char s[]=",>,<[->+<]>.\0";
+	//char s[]=",,+.";
 	int i=0;
 
 	while (s[i]!='\0')
 	{
-		if(s[i]=='>'){p+=1,i+=1;}
+		if(s[i]=='>')
+		{
+			p+=1;
+			i+=1;
+		}
 		else if(s[i]=='<')
 		{
-			p-=1;i+=1;
+			p-=1;
+			i+=1;
 		}
 		else if(s[i]=='+')
 		{
-			*(m+p)+=1;i+=1;
+			*(m+p)+=1;
+			i+=1;
 		}
 		else if(s[i]=='-')
 		{
@@ -25,7 +32,7 @@ void main()
 		}
 		else if(s[i]==',')
 		{
-			*(m+p)=getchar();
+			scanf("%lld",m+p);
 			i+=1;
 		}
 		else if(s[i]=='.')
@@ -39,23 +46,22 @@ void main()
 			{
 				int cnt=1;
 				int j=1;
-				while (s[i+j]=='\0')
+				while (1)
 				{
 					if (s[i+j]=='[')
 					{
 						cnt+=1;
-						j+=1;
 					}
 					if (s[i+j]==']')
 					{
 						cnt-=1;
-						j+=1;
 					}
 					if (cnt==0)
 					{
-						i=i+j;
+						i=i+j+1;
 						break;
 					}
+					j+=1;
 				}
 			}
 			else
@@ -63,27 +69,26 @@ void main()
 				i+=1;
 			}
 		}
-		if(s[i]==']')
+		else if(s[i]==']')
 		{
 			int cnt=1;
 			int j=1;
-			while (i-j!=-1)
+			while (1)
 			{
 				if (s[i-j]=='[')
 				{
 					cnt-=1;
-					j+=1;
 				}
 				if (s[i-j]==']')
 				{
 					cnt+=1;
-					j+=1;
 				}
 				if (cnt==0)
 				{
-					i==i-j;
+					i=i-j;
 					break;
 				}
+				j+=1;
 
 			}
 
@@ -93,7 +98,6 @@ void main()
 		{
 			i+=1;
 		}
-
 
 	}
 
